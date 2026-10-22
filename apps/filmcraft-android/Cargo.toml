@@ -36,7 +36,7 @@ filmcraft-project = { path = "../../crates/project" }
 filmcraft-render = { path = "../../crates/render" }
 filmcraft-time = { path = "../../crates/time" }
 filmcraft-ui-egui = { path = "../../crates/ui-egui" }
-eframe = { workspace = true, features = ["default_fonts", "wgpu", "accesskit", "android-native-activity"] }
+eframe = { workspace = true, features = ["default_fonts", "wgpu"] }
 egui = { workspace = true }
 cpal = "0.16"
 sys-locale = "0.3"
@@ -45,6 +45,7 @@ serde_json = { workspace = true }
 log = { workspace = true }
 
 [target.'cfg(target_os = "android")'.dependencies]
+eframe = { workspace = true, features = ["android-native-activity"] }
 android-activity = { version = "=0.6.1", features = ["native-activity"] }
 jni = { version = "=0.22.4", default-features = false }
 ndk = { version = "=0.9.0", default-features = false }

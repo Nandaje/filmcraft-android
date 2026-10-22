@@ -6,16 +6,17 @@ plugins {
 android {
     namespace = "ai.storyteller.filmcraft"
     compileSdk = 34
+    ndkVersion = "27.0.12077973"
 
     defaultConfig {
         applicationId = "ai.storyteller.filmcraft"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
+        versionCode = 1000
         versionName = "0.10.0"
 
         ndk {
-            abiFilters += listOf("arm64-v8a", "x86_64")
+            abiFilters += listOf("arm64-v8a")
         }
     }
 
@@ -23,6 +24,9 @@ android {
         release {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("debug")
+        }
+        debug {
+            isJniDebuggable = true
         }
     }
 
