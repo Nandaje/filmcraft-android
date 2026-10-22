@@ -1729,6 +1729,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "filmcraft-android"
+version = "0.10.0"
+dependencies = [
+ "android-activity",
+ "cpal",
+ "eframe",
+ "egui",
+ "filmcraft-engine",
+ "filmcraft-export",
+ "filmcraft-format",
+ "filmcraft-gpu",
+ "filmcraft-media",
+ "filmcraft-platform",
+ "filmcraft-project",
+ "filmcraft-render",
+ "filmcraft-time",
+ "filmcraft-ui-egui",
+ "jni 0.22.4",
+ "log",
+ "ndk",
+ "serde",
+ "serde_json",
+ "sys-locale",
+ "tempfile",
+]
+
+[[package]]
 name = "filmcraft-apv"
 version = "0.10.0"
 dependencies = [
