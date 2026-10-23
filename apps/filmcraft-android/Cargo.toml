@@ -1,0 +1,54 @@
+[package]
+name = "filmcraft-android"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish = false
+
+# Android NativeActivity requires a `cdylib` (`libfilmcraft_android.so`) loaded by the system
+# activity loader, plus `rlib` so unit and integration tests can link against the host logic on
+# desktop targets.
+[lib]
+name = "filmcraft_android"
+crate-type = ["cdylib", "rlib"]
+
+# Override workspace `unsafe_code = "forbid"` to `"deny"` because Android NativeActivity and JNI
+# entrypoints require `#[unsafe(no_mangle)]` and raw `JNIEnv` pointer handling in `android_entry`,
+# which is gated with `#![allow(unsafe_code)]` and `// SAFETY:` comments.
+[lints.rust]
+unsafe_code = "deny"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+dbg_macro = "warn"
+todo = "warn"
+unimplemented = "warn"
+
+[dependencies]
+filmcraft-engine = { path = "../../crates/engine" }
+filmcraft-export = { path = "../../crates/export" }
+filmcraft-format = { path = "../../crates/format" }
+filmcraft-gpu = { path = "../../crates/gpu" }
+filmcraft-media = { path = "../../crates/media" }
+filmcraft-platform = { path = "../../crates/platform" }
+filmcraft-project = { path = "../../crates/project" }
+filmcraft-render = { path = "../../crates/render" }
+filmcraft-time = { path = "../../crates/time" }
+filmcraft-ui-egui = { path = "../../crates/ui-egui" }
+eframe = { workspace = true, features = ["default_fonts", "wgpu"] }
+egui = { workspace = true }
+cpal = "0.16"
+sys-locale = "0.3"
+serde = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }
+
+[target.'cfg(target_os = "android")'.dependencies]
+eframe = { workspace = true, features = ["android-native-activity"] }
+android-activity = { version = "=0.6.1", features = ["native-activity"] }
+jni = { version = "=0.22.4", default-features = false }
+ndk = { version = "=0.9.0", default-features = false }
+
+[dev-dependencies]
+tempfile = "3"

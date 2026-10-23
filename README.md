@@ -8,6 +8,10 @@
 </p>
 
 
+<p align="center">
+  <img src="assets/app-icon/hicolor/256x256/apps/ai.storyteller.filmcraft.png" width="128" height="128" alt="FilmCraft icon: an engraved owl on a purple tile">
+</p>
+
 <h1 align="center">FilmCraft</h1>
 
 <p align="center">
@@ -50,6 +54,12 @@
 > [!NOTE]
 > **ArtCraft is a community of artists from all walks of life.** Digital, generative, music,
 > games &mdash; if you make things, you're one of us. **[Come say hi on Discord](https://discord.gg/artcraft).**
+
+> [!IMPORTANT]
+> **Android Port (`filmcraft-android`)** — This fork includes the native Android port (`apps/filmcraft-android` and `packaging/android`) with:
+> - **Hardware GPU Acceleration ON by default**: `wgpu` Vulkan 1.1+ primary backend with OpenGL ES 3.0+ fallback (`PowerPreference::HighPerformance`), full hardware adapter texture/compute limits unlocked, real-time `filmcraft_gpu` monitor & export GPU compositing (`set_wgpu` + `register_frame_renderer`), and a crash-safe startup recovery sentinel (`gpu-starting.json`).
+> - **Full File Import & Export Permissions**: Runtime Android storage/media/microphone permissions (`READ_MEDIA_VIDEO`, `READ_MEDIA_AUDIO`, `READ_MEDIA_IMAGES`, `READ_EXTERNAL_STORAGE`, `WRITE_EXTERNAL_STORAGE`, `MANAGE_EXTERNAL_STORAGE`, `RECORD_AUDIO`), an in-app touch file/folder browser modal with quick storage bookmarks (`Movies`, `Camera (DCIM)`, `Downloads`, `Pictures`, `Music`, `Documents`, `Shared Storage`, `App External`, `App Exports`), Android Storage Access Framework (SAF) system file/save/folder pickers, scoped-storage fallback, and `MediaScannerConnection` indexing.
+> - See **[docs/android.md](docs/android.md)** for full architecture and build instructions.
 
 <p align="center">
   <a href="#edit">Edit</a> ·
