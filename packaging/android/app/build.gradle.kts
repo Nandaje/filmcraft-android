@@ -6,14 +6,14 @@ plugins {
 android {
     namespace = "ai.storyteller.filmcraft"
     compileSdk = 34
-    ndkVersion = "27.0.12077973"
+    ndkVersion = "26.1.10909125"
 
     defaultConfig {
         applicationId = "ai.storyteller.filmcraft"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1200
-        versionName = "0.12.0"
+        versionCode = 1300
+        versionName = "0.13.0"
 
         ndk {
             abiFilters += listOf("arm64-v8a")

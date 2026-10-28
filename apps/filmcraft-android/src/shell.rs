@@ -62,6 +62,7 @@ impl AndroidShell {
         initial_file: Option<PathBuf>,
     ) -> Self {
         let _ = filmcraft_platform::register();
+        filmcraft_ui_egui::install_ime_reset_callbacks(&cc.egui_ctx);
 
         let dirs = permissions::current_dirs();
         let data_dir = dirs.internal_data.clone();

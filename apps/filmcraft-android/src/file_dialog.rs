@@ -482,7 +482,7 @@ pub fn show_file_dialog(ctx: &egui::Context) {
     let modal_height = (screen_rect.height() * 0.84).clamp(280.0, 620.0);
 
     egui::Window::new(&dialog.title)
-        .id(egui::Id::new("filmcraft_android_file_dialog"))
+        .id(egui::Id::unique("filmcraft_android_file_dialog"))
         .collapsible(false)
         .resizable(true)
         .default_size([modal_width, modal_height])
