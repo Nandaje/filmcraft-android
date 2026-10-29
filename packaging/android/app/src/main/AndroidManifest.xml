@@ -50,6 +50,8 @@
 
     <application
         android:label="FilmCraft"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
         android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
